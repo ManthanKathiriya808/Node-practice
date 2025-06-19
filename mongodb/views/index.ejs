@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</head>
+<body>
+        <table class="table w-25 mx-auto mt-5">
+                <form action="/insert" method="post">
+                 <tr>
+                     <input type="text" hidden name="id" value="<%= editData.id %>">
+                <th>Name</th>
+                <td><input type="text" name="name" value="<%= editData.name %>"></td>
+            </tr>
+            <tr>
+                <th>email</th>
+                <td><input type="text" name="email " value="<%= editData.email %>"></td>
+            </tr>
+            <tr>
+                <th>number</th>
+                <td><input type="number" name="number" value="<%= editData.number %>"></td>
+            </tr>
+            <tr>
+                <th>password</th>
+                <td><input type="text" name="password" value="<%= editData.password %>"></td>
+            </tr>
+            <tr>
+                <td><button type="submit " class="btn btn-success">submit</button></td>
+            </tr>
+                </form>
+        </table>
+<div class="container">
+    
+        <table class="mt-5 table">
+            <tr>
+                <th>NAme</th>
+                <th>email</th>
+                <th>number</th>
+                <th>password</th>
+                <th>delete</th>
+                <th>edit</th>
+            </tr>
+                <% data.map((ele)=>{ %>
+
+                    <tr>
+                        <td>
+                            <%=ele.name%>
+                        </td>
+                        <td>
+                            <%=ele.email%>
+                        </td>
+                        <td>
+                            <%=ele.number%>
+                        </td>
+                        <td>
+                            <%=ele.password%>
+                        </td>
+                        <td>
+
+                          <a href="/delete/<%=ele.id%>" class="btn btn-danger">🗑️</a>
+                        </td>
+                        <td>
+
+                            <a href="/edit/<%=ele.id%>" class="btn btn-warning">🖊️</a>
+                        </td>
+                    </tr>
+      <%          })%>
+        </table>
+</div>
+</body>
+</html>
